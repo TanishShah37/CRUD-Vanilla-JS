@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>CRUD Operations with REST API using Vanila JS</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+</head>
+
+<body>
+
+    <!-- <script>
+        function sortTable(n) {
+          var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+          table = document.getElementById("userList");
+          switching = true;
+          //Set the sorting direction to ascending:
+          dir = "asc"; 
+          /*Make a loop that will continue until
+          no switching has been done:*/
+          while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 1; i < (rows.length - 1); i++) {
+              //start by saying there should be no switching:
+              shouldSwitch = false;
+              /*Get the two elements you want to compare,
+              one from current row and one from the next:*/
+              x = rows[i].getElementsByTagName("TD")[n];
+              y = rows[i + 1].getElementsByTagName("TD")[n];
+              /*check if the two rows should switch place,
+              based on the direction, asc or desc:*/
+              if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                  //if so, mark as a switch and break the loop:
+                  shouldSwitch= true;
+                  break;
+                }
+              } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                  //if so, mark as a switch and break the loop:
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+            }
+            if (shouldSwitch) {
+              /*If a switch has been marked, make the switch
+              and mark that a switch has been done:*/
+              rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+              switching = true;
+              //Each time a switch is done, increase this count by 1:
+              switchcount ++;      
+            } else {
+              /*If no switching has been done AND the direction is "asc",
+              set the direction to "desc" and run the while loop again.*/
+              if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+              }
+            }
+          }
+        }
+        </script> -->
+
+    <div class="content">
+
+        <header>
+            <div class="leftheader">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="profileimage">
+
+                <h1 class="logo">ABC BANK</h1>
+
+                <h2 class="logotext">CONTROL CENTER</h2>
+            </div>
+            <div class="rightheader">
+                <img class="appicon" src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-apps_90405.png">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="profileimage">
+            </div>
+        </header>
+
+    </div>
+
+    <div class="container">
+        <div>
+            <h1 class="maintitle">Employees</h1>
+
+            <button id="myBtn" class="createbutton" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#recordModal">
+                Create Employee
+            </button>
+
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Create Employee</h4>
+                </div>
+
+                <div class="modal-body createModalBody">
+
+                    <form action="javascript:void(0)" autocomplete="off" method="POST" id="createRecordForm"
+                        onsubmit="CreateRecord()">
+                        <label for="id">ID</label>
+                        <div class="input-group">
+                            <div class="input-group-icon">EM</div>
+                            <input type="number" id="EM" placeholder="01" required=true>
+                        </div>
+                        <div style="clear:both;">&nbsp;</div>
+
+                        <div class="two-col">
+                            <div class="col1">
+                                <label for="firstName">First Name</label>
+                                <input id="firstName" name="firstName" size="30" type="text" />
+                            </div>
+
+                            <div class="col2">
+                                <label for="lastName">Last Name</label>
+                                <input id="lastName" name="lastName" size="30" type="text" />
+                            </div>
+                        </div>
+
+                        <label for="jobTitleName">Job Title</label>
+                        <input type="text" id="jobTitleName" placeholder="Bank" required=true>
+
+                        <label for="emailAddress">Email id</label>
+                        <input type="email" id="emailAddress" placeholder="abcbank@gmail.com" required=true>
+
+                        <label for=phoneNumber>Phone Number</label>
+                        <input type="number" id="phoneNumber" placeholder="+91 888-888-888" required=true>
+
+                        <label for="region">Region</label>
+                        <input type="text" id="region" placeholder="IN" required=true>
+                        <label for="dob">Region</label>
+                        <input type="date" id="dob" placeholder="dd/mm/yy" required=true>
+
+                        <input type="submit" id="modalButton" value="Create"> <span class="close">Cancel</span>
+                        <button type="button" class="close clear" data-dismiss="modal" onClick="clearForm()">Clear
+                            Data</button>
+
+                    </form>
+
+                    <div class="viewDetaisLeft">
+                        <p>Name</p>
+                        <p>Employee Code</p>
+                        <p>Job Details</p>
+                        <p>Phone Number</p>
+                        <p>Email</p>
+                        <p>Region</p>
+                        <p>DOB</p>
+                    </div>
+                    <div class="viewDetaisRight">
+                        <p class="fullName">Name</p>
+                        <p class="employeeCode">Employee Code</p>
+                        <p class="jobDetails">Job Details</p>
+                        <p class=phoneNumber>Phone Number</p>
+                        <p class="email">Email</p>
+                        <p class="region">Region</p>
+                        <p class="dob">DOB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <select type="search" class="select-table-filter" data-table="order-table">
+            <option value="firstname">First Name</option>
+            <option value="jobTitleName">Job Title Name</option>
+        </select>
+                <input type="text" placeholder="Search 🔎" id="searchInput" onkeyup="searchRecord()" title="Search">
+                <div class="responsive-table">
+                    <div id="dynamic-table"></div>
+                </div>
+
+    </div>
+   
+ 
+<div id="pageNavPosition" class="pager-nav"></div>
+
+  <script async src="./script.js"></script>
+
+</body>
+
+</html>
