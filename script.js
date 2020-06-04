@@ -338,6 +338,9 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
     modal.style.display = "block";
+    document.getElementById("modalButton").value = "Create";
+    document.querySelector('.modal-title').innerText = "Create Employee"
+
     clearForm();
 }
 

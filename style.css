@@ -400,7 +400,8 @@ header {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 999999999999;
-  left: -60px;
+  left: -81px;
+  top: 38px;
 }
 
 .dropdown:hover .dropdown-content {
