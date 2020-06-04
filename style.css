@@ -34,13 +34,7 @@ th {
   text-align: center;
   padding: 11px;
 }
-/* 
-tr:nth-child(even) {
-  background-color: #bdbebe3d;
-}
-tr:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.1);
-} */
+
 table #tabletitle {
   background-color: rgb(133, 86, 245);
 }
@@ -147,7 +141,7 @@ h2 {
 }
 
 .container table {
-  /* border: 1px solid #d6d6d6; */
+
   border-collapse: collapse;
   width: 100%;
   background-color: #fff;
@@ -155,13 +149,11 @@ h2 {
 
 .container table thead {
   background-color: #ffffff;
-  /* border: 1px solid #d6d6d6; */
+
   border-bottom: none;
 }
 .container table thead th {
   text-transform: capitalize;
-  /* border-right: 1px solid #d6d6d6; */
-  /* background-color: #f5f5f5; */
   font-size: 14px;
   font-weight: 600;
 }
@@ -184,11 +176,6 @@ h2 {
 .container table thead th a:focus {
   background-color: #e2e2e4;
 }
-
-/* .container table thead th.ascendent_sort,
-.container table thead th.descendent_sort {
-  background-color: #eff0f0;
-} */
 
 .container table thead th.ascendent_sort a:hover,
 .container table thead th.ascendent_sort a:focus,
@@ -220,7 +207,6 @@ h2 {
   border-top: 1px solid #d6d6d6;
 }
 .container table tbody td {
-  /* border-right: 1px solid #d6d6d6; */
   font-size: 14px;
   padding: 10px;
 }
@@ -230,8 +216,6 @@ h2 {
 
 .responsive-table {
   overflow: auto;
-  /* border-right: 1px solid #d6d6d6; */
-  /* border-left: 1px solid #d6d6d6; */
 }
 
 .btn {
@@ -387,9 +371,6 @@ header {
 }
 
 .crud-dropdown-menu {
-  /* content: '\002026';
-  font-size: 20px; */
-
   width: 100px;
   height: 100px;
   background-image: radial-gradient(circle, black 10px, transparent 11px);
@@ -434,24 +415,23 @@ header {
   text-align: left;
 }
 
-/* The Modal (background) */
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0, 0, 0); 
+  background-color: rgba(0, 0, 0, 0.4); 
   margin: 0;
   box-sizing: border-box;
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -479,7 +459,6 @@ header {
     width:50%
 }
 
-/* The Close Button */
 .close {
   color: #6f6a6a;
   font-size: 18px;
@@ -530,7 +509,7 @@ textarea {
 .input-group > div {
   display: table-cell;
   border: 1px solid #ddd;
-  vertical-align: middle; /* needed for Safari */
+  vertical-align: middle; 
 }
 .input-group-icon {
   background: #eee;
