@@ -12,8 +12,6 @@ function Pager(tableName, itemsPerPage) {
 
     this.showRecords = function (from, to) {
         let rows = document.getElementById(tableName).rows;
-
-        // i starts from 1 to skip table header row
         for (let i = 1; i < rows.length; i++) {
             if (i < from || i > to) {
                 rows[i].style.display = 'none';
@@ -25,7 +23,6 @@ function Pager(tableName, itemsPerPage) {
 
     this.showPage = function (pageNumber) {
         if (!this.inited) {
-            // Not initialized
             return;
         }
 
@@ -80,7 +77,6 @@ function Pager(tableName, itemsPerPage) {
 
     this.showPageNav = function (pagerName, positionId) {
         if (!this.inited) {
-            // Not initialized
             return;
         }
 
@@ -331,13 +327,11 @@ function validateMailId() {
 
 var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+
 btn.onclick = function () {
     modal.style.display = "block";
     document.getElementById("modalButton").value = "Create";
@@ -346,12 +340,10 @@ btn.onclick = function () {
     clearForm();
 }
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -406,7 +398,6 @@ function createTableWithData() {
 
             if (json.length > 0) {
                 var table = new DynamicTable(tableId, json);
-                // table.className = "pagination";
                 tableId.pagecount = "3"
                 div.appendChild(table);
 
@@ -424,8 +415,6 @@ window.onload = function () {
     createTable();
 };
 
-
-// Sort helper
 function sortFn(a, b) {
     if (a.value < b.value) {
         return -1;
@@ -438,7 +427,6 @@ function sortFn(a, b) {
     return 0;
 }
 
-// Sort the list
 function sortList(list, direction) {
     var sorted = list.sort(sortFn);
 
@@ -449,7 +437,6 @@ function sortList(list, direction) {
     return sorted;
 }
 
-// Event triggered on heading anchor click (which will trigger the sort)
 function onHeadigClick(that, cellIndex) {
     return function () {
         that.sortColumn(this, cellIndex);
@@ -458,7 +445,6 @@ function onHeadigClick(that, cellIndex) {
     };
 }
 
-// Create anchor for each th
 function createAnchor(html, index) {
     var a = document.createElement('a');
     a.href = '#';
@@ -497,33 +483,21 @@ function DynamicTable(tableId, data) {
     var thead_tr = document.createElement('tr');
 
     headings.forEach(function (heading) {
-        // if (!((heading == "lastName") || (heading == "firstName"))) {
         var cell = document.createElement('th');
         cell.className = "ascendent_sort "
         cell.innerHTML = heading;
 
         thead_tr.appendChild(cell);
-        // }
 
     });
 
-
-    // thead +=  '<th><a href="#">Action</a></th>'
     data.forEach(function (item) {
         var tbody_tr = document.createElement('tr');
 
         headings.forEach(function (heading) {
-            // if (((heading == "lastName") || (heading == "firstName"))) {
-            //     heading = "Fullname"
-            //     var cell = document.createElement('td');
-            //     cell.innerHTML = item[heading] || '';
-            //     tbody_tr.appendChild(cell);
-            // }
-            // else {
             var cell = document.createElement('td');
             cell.innerHTML = item[heading] || '';
             tbody_tr.appendChild(cell);
-            // }
         });
         document.createElement
         tbody_tr.innerHTML += '<div class="dropdown"> <span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="dropdown-content">  <a onclick="viewRecord(this)">View</a>    <a onclick="editRecord(this)">Edit</a> <a onclick="deleteRecord(this)">Delete</a> </div> </div>';
@@ -684,7 +658,6 @@ function createFooters(table) {
     var numPages = rows / perPage;
     var pages = document.createElement("div");
 
-    // add an extra page, if we're 
     if (numPages % 1 > 0)
         numPages = Math.floor(numPages) + 1;
 
@@ -711,7 +684,6 @@ function createFooters(table) {
         pages.appendChild(page);
     }
 
-    // insert page at the top of the table
     table.parentNode.insertBefore(pages, table);
 }
 
