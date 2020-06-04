@@ -109,7 +109,7 @@ function CreateRecord() {
         "emailAddress": createRecordForm.emailAddress.value
     }
 
-    fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/', {
+    fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/', {
             method: 'post',
             mode: "cors",
             body: JSON.stringify(employeeData),
@@ -145,7 +145,7 @@ function clearForm() {
 function editRecord(td) {
     rowToEdit = td.parentElement.parentElement.parentElement;
     var idToEdit = rowToEdit.rowIndex
-    fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToEdit, {
+    fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToEdit, {
             method: 'get',
             mode: "cors",
         })
@@ -196,7 +196,7 @@ function updateRecord(idToEdit) {
         "phoneNumber": createRecordForm.phoneNumber.value,
         "emailAddress": createRecordForm.emailAddress.value
     }
-    fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToEdit, {
+    fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToEdit, {
             method: 'put',
             mode: "cors",
             body: JSON.stringify(employeeData),
@@ -221,7 +221,7 @@ function updateRecord(idToEdit) {
 function deleteRecord(td) {
     rowToDelete = td.parentElement.parentElement.parentElement;
     var idToDelete = rowToDelete.rowIndex
-    fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToDelete, {
+    fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToDelete, {
             method: 'delete',
             mode: "cors",
         })
@@ -239,7 +239,7 @@ function deleteRecord(td) {
 function viewRecord(td) {
     rowToView = td.parentElement.parentElement.parentElement;
     var idToView = rowToView.rowIndex
-    fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToView, {
+    fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/' + idToView, {
             method: 'get',
             mode: "cors",
         })
@@ -363,7 +363,7 @@ function createTable() {
         div.innerHTML = '';
 
         var tableId = 'sortable';
-        fetch('http://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/', {
+        fetch('https://5ed8babb4378690016c6a4ea.mockapi.io/api/employees/', {
                 method: 'get',
                 mode: "cors",
             })
