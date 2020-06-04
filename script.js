@@ -43,10 +43,12 @@ function Pager(tableName, itemsPerPage) {
         let pgNext = document.querySelector('.pg-next'),
             pgPrev = document.querySelector('.pg-prev');
 
-        if (this.currentPage == this.pages) {
+        if (this.currentPage == this.pages && pgNext) {
             pgNext.style.display = 'none';
         } else {
-            pgNext.style.display = '';
+            if (pgNext) {
+                pgNext.style.display = '';
+            }
         }
 
         if (this.currentPage === 1) {
